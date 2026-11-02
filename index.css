@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html, body, #root { min-height: 100%; }
+body { @apply bg-black font-sans text-bone antialiased; }
+
+@layer components {
+  .panel { @apply rounded-xl border border-line bg-panel; }
+  .input {
+    @apply w-full rounded-lg border border-line bg-black px-3 py-2.5 text-sm text-bone outline-none transition placeholder:text-bone/30 focus:border-blood focus:ring-1 focus:ring-blood;
+  }
+  .label { @apply mb-1.5 block text-xs font-medium text-bone/60; }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-line px-3.5 py-2 text-sm font-semibold text-bone transition hover:border-blood hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blood disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-line;
+  }
+  .btn-red {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-blood px-3.5 py-2 text-sm font-bold text-white transition hover:bg-ember focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:cursor-not-allowed disabled:opacity-40;
+  }
+}
+
+.fast-btn {
+  font-family: 'Big Shoulders Display', Impact, sans-serif;
+  letter-spacing: 0.04em;
+  animation: heartbeat 2.8s ease-in-out infinite;
+}
+.fast-btn:disabled { animation: none; box-shadow: none; }
+@keyframes heartbeat {
+  0%, 100% { box-shadow: 0 0 18px rgba(225, 6, 0, 0.45); }
+  50% { box-shadow: 0 0 44px rgba(225, 6, 0, 0.85); }
+}
+
+.hero-art { mask-image: linear-gradient(to left, #000 35%, transparent 95%); -webkit-mask-image: linear-gradient(to left, #000 35%, transparent 95%); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
